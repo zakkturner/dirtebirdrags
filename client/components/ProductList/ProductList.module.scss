@@ -25,6 +25,31 @@
     &__grid {
       grid-gap: 20px 10px;
       &__product {
+        height: 250px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 834px) {
+  .products {
+    &__grid {
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 20px 10px;
+      &__product {
+        height: 250px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .products {
+    &__grid {
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 20px 10px;
+      &__product {
+        height: 300px;
       }
     }
   }

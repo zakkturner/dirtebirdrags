@@ -26,6 +26,26 @@ export default function ProductList() {
               <div className={styles.products__grid__product}></div>
             </a>
           </Link>
+          <Link href="#">
+            <a>
+              <div className={styles.products__grid__product}></div>
+            </a>
+          </Link>
+          <Link href="#">
+            <a>
+              <div className={styles.products__grid__product}></div>
+            </a>
+          </Link>
+          <Link href="#">
+            <a>
+              <div className={styles.products__grid__product}></div>
+            </a>
+          </Link>
+          <Link href="#">
+            <a>
+              <div className={styles.products__grid__product}></div>
+            </a>
+          </Link>
         </div>
       </main>
     </>
