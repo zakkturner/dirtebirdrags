@@ -4,6 +4,7 @@ import styles from "../styles/Shop.module.scss";
 
 import Header from "../components/Header/Header";
 import ProductList from "../components/ProductList/ProductList";
+import Footer from "../components/Footer/Footer";
 
 import gsap, { Power4 } from "gsap";
 const Shop = () => {
@@ -27,6 +28,7 @@ const Shop = () => {
         >
           <Header />
           <ProductList />
+          <Footer />
         </div>
       </section>
     </>
