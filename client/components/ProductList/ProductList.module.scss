@@ -1,0 +1,31 @@
+.products {
+  margin-top: 50px;
+  width: 100%;
+  height: 100%;
+  &__grid {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px 5px;
+    &__product {
+      width: 100%;
+      height: 180px;
+      background: url("/img/shirt.jpg") no-repeat center center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .products {
+    &__grid {
+      grid-gap: 20px 10px;
+      &__product {
+      }
+    }
+  }
+}

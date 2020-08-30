@@ -1,0 +1,33 @@
+.header {
+  margin-top: 50px;
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    align-items: center;
+    &__logoCont {
+      &_logo {
+        display: inline-block;
+        img {
+          width: 30%;
+          height: 30%;
+        }
+      }
+    }
+    &__links {
+      display: flex;
+      justify-content: space-between;
+      &__item {
+        list-style-type: none;
+      }
+      &__cart {
+        list-style-type: none;
+        &__link {
+          &_num {
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+  }
+}
