@@ -7,6 +7,7 @@ import ProductList from "../components/ProductList/ProductList";
 import Footer from "../components/Footer/Footer";
 
 import gsap, { Power4 } from "gsap";
+import Layout from "../components/Layout";
 const Shop = () => {
   let container = useRef(null);
 
@@ -26,9 +27,9 @@ const Shop = () => {
             container = el;
           }}
         >
-          <Header />
-          <ProductList />
-          <Footer />
+          <Layout>
+            <ProductList />
+          </Layout>
         </div>
       </section>
     </>
