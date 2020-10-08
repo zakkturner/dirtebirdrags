@@ -7,10 +7,13 @@ import gsap, { Power4 } from "gsap";
 import Layout from "../components/Layout";
 
 import fetch from "isomorphic-unfetch";
+import Product from "../components/Product/Product";
 
 const Shop = (props) => {
   let container = useRef(null);
   console.warn(props);
+  const { products } = props;
+
   useEffect(() => {
     gsap.from(container, {
       duration: 1,
@@ -28,7 +31,13 @@ const Shop = (props) => {
           }}
         >
           <Layout>
-            <ProductList />
+            <main className={styles.shop__container__products}>
+              <div className={styles.shop__container__products__grid}>
+                {products.length
+                  ? products.map((product) => <Product product={product} />)
+                  : ""}
+              </div>
+            </main>
           </Layout>
         </div>
       </section>
