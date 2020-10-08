@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "./ProductList.module.scss";
 
-export default function ProductList() {
+export default function ProductList(props) {
   return (
     <>
       <main className={styles.products}>

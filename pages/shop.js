@@ -1,16 +1,16 @@
 import { useEffect, useRef } from "react";
-
 import styles from "../styles/Shop.module.scss";
-
-import Header from "../components/Header/Header";
 import ProductList from "../components/ProductList/ProductList";
-import Footer from "../components/Footer/Footer";
+import clientConfig from "../client-config";
 
 import gsap, { Power4 } from "gsap";
 import Layout from "../components/Layout";
-const Shop = () => {
-  let container = useRef(null);
 
+import fetch from "isomorphic-unfetch";
+
+const Shop = (props) => {
+  let container = useRef(null);
+  console.warn(props);
   useEffect(() => {
     gsap.from(container, {
       duration: 1,
@@ -34,6 +34,15 @@ const Shop = () => {
       </section>
     </>
   );
+};
+
+Shop.getInitialProps = async () => {
+  const res = await fetch(`${clientConfig.siteUrl}/getProducts`);
+  const productsData = await res.json();
+
+  return {
+    products: productsData,
+  };
 };
 
 export default Shop;
