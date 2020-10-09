@@ -1,0 +1,21 @@
+.product {
+  width: 100%;
+  height: 180px;
+  //   background: url("/img/shirt.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+@media only screen and (min-width: 768px) {
+  .product {
+    height: 250px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .product {
+    height: 300px;
+  }
+}

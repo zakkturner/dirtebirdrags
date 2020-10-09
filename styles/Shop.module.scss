@@ -1,0 +1,67 @@
+.shop {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  &__container {
+    width: 90%;
+    margin: 0 auto;
+    &__products {
+      margin: 50px 0;
+      width: 100%;
+      &__grid {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10px 5px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .shop {
+    &__container {
+      width: 80%;
+      &__products {
+        &__grid {
+          grid-gap: 20px 10px;
+        }
+      }
+    }
+  }
+}
+@media only screen and (min-width: 834px) {
+  .shop {
+    &__container {
+      width: 70%;
+      &__products {
+        &__grid {
+          grid-template-columns: 1fr 1fr;
+          grid-gap: 20px 10px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .shop {
+    &__container {
+      &__products {
+        &__grid {
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-gap: 20px 10px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .shop {
+    &__container {
+      width: 60%;
+    }
+  }
+}
