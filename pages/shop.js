@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import styles from "../styles/Shop.module.scss";
-import ProductList from "../components/ProductList/ProductList";
+
 import client from "../components/ApolloClient";
 import gsap, { Power4 } from "gsap";
 import Layout from "../components/Layout";
@@ -31,10 +31,8 @@ const PRODUCTS_QUERY = gql`
   }
 `;
 const Shop = (props) => {
-  console.warn(props);
-
   let container = useRef(null);
-  console.warn(props);
+
   const { products } = props;
 
   useEffect(() => {

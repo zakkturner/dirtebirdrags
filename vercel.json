@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "name": "dirte-bird-rags",
+  "alias": "dirte-bird-rags",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
+    }
+  ]
+}
