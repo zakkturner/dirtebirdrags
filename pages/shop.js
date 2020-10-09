@@ -1,15 +1,38 @@
 import { useEffect, useRef } from "react";
 import styles from "../styles/Shop.module.scss";
 import ProductList from "../components/ProductList/ProductList";
-import clientConfig from "../client-config";
-
+import client from "../components/ApolloClient";
 import gsap, { Power4 } from "gsap";
 import Layout from "../components/Layout";
 
-import fetch from "isomorphic-unfetch";
 import Product from "../components/Product/Product";
 
+import gql from "graphql-tag";
+
+const PRODUCTS_QUERY = gql`
+  query {
+    products(first: 20) {
+      nodes {
+        id
+        productId
+        averageRating
+        slug
+        description
+        image {
+          uri
+          title
+          sourceUrl
+          srcSet
+        }
+        name
+        price
+      }
+    }
+  }
+`;
 const Shop = (props) => {
+  console.warn(props);
+
   let container = useRef(null);
   console.warn(props);
   const { products } = props;
@@ -34,7 +57,9 @@ const Shop = (props) => {
             <main className={styles.shop__container__products}>
               <div className={styles.shop__container__products__grid}>
                 {products.length
-                  ? products.map((product) => <Product product={product} />)
+                  ? products.map((product) => (
+                      <Product product={product} key={product.id} />
+                    ))
                   : ""}
               </div>
             </main>
@@ -46,11 +71,9 @@ const Shop = (props) => {
 };
 
 Shop.getInitialProps = async () => {
-  const res = await fetch(`${clientConfig.siteUrl}/getProducts`);
-  const productsData = await res.json();
-
+  const result = await client.query({ query: PRODUCTS_QUERY });
   return {
-    products: productsData,
+    products: result.data.products.nodes,
   };
 };
 

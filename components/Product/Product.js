@@ -8,7 +8,7 @@ export default function Product(props) {
       <a>
         <div
           className={styles.product}
-          style={{ backgroundImage: `url(${product.images[0].src})` }}
+          style={{ backgroundImage: `url(${product.image.sourceUrl})` }}
         ></div>
       </a>
     </Link>
