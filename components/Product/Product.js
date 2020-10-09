@@ -4,7 +4,7 @@ import styles from "./Product.module.scss";
 export default function Product(props) {
   const { product } = props;
   return (
-    <Link href="#">
+    <Link href={`/product/?slug=${product.slug}-${product.productId}`}>
       <a>
         <div
           className={styles.product}
