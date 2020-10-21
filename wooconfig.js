@@ -5,7 +5,7 @@
 // };
 
 const wooConfig = {
-  siteUrl: "http://dirtebirdrags.local",
+  siteUrl: "http://dirtebirdrags1.local",
   consumerKey: "ck_d4a183069fd4865817e5e329261d32704ccf8aee",
   consumerSecret: "cs_094f7898ae3fb40b429a36859f577688d3e17cc0",
 };

@@ -162,3 +162,40 @@ const isProductInCart = (existingProductsInCart, productId) => {
 
   return existingProductsInCart.indexOf(newArray[0]);
 };
+
+export const removeItemFromCart = (productId) => {
+  // get existing cart data
+
+  let existingCart = localStorage.getItem("dbr-cart");
+  existingCart = JSON.parse(existingCart);
+  //  if one item delete cart
+  if (existingCart.products.length === 1) {
+    localStorage.removeItem("dbr-cart");
+    return null;
+  }
+  //  check if the product exists
+
+  const productExistsIndex = isProductInCart(existingCart.products, productId);
+
+  //  if product to be removed exists
+
+  if (productExistsIndex > -1) {
+    const productToBeRemoved = existingCart.products[productExistsIndex];
+    const qtyToBeRemovedFromTotal = productToBeRemoved.qty;
+    const priceToBeDeductedFromTotal = productToBeRemoved.totalPrice;
+
+    // Remove product from array & update total price and total qty
+    let updatedCart = existingCart;
+    updatedCart.products.splice(productExistsIndex, 1);
+    updatedCart.totalProductsCount =
+      updatedCart.totalProductsCount - qtyToBeRemovedFromTotal;
+    updatedCart.totalProductsPrice =
+      updatedCart.totalProductsPrice - priceToBeDeductedFromTotal;
+
+    localStorage.setItem("dbr-cart", JSON.stringify(updatedCart));
+
+    return updatedCart;
+  } else {
+    return existingCart;
+  }
+};
