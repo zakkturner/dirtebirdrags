@@ -53,9 +53,7 @@ export default function CartItem({ item, setCart, handleRemoveProductClick }) {
         </p>
       </div>
       <div className={styles.item__totalContainer}>
-        <p className={styles.item__totalContainer_total}>
-          {item.totalPrice.toFixed(2)}
-        </p>
+        <p className={styles.item__totalContainer_total}>{item.totalPrice}</p>
       </div>
     </div>
   );

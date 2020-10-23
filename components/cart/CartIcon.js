@@ -15,9 +15,7 @@ const CartIcon = () => {
         <a>
           <div className={styles.cart}>
             {totalPrice ? (
-              <span className={styles.cart__price}>
-                ${totalPrice.toFixed(2)}
-              </span>
+              <span className={styles.cart__price}>{totalPrice}</span>
             ) : (
               ""
             )}

@@ -31,7 +31,7 @@ const CartItemsContainer = () => {
             ))}
           <div className={styles.cartContainer__cartTotal__container}>
             <h2>Total</h2>
-            <div>${cart.totalProductsPrice.toFixed(2)}</div>
+            <div>{cart.totalProductsPrice}</div>
           </div>
         </div>
       )}

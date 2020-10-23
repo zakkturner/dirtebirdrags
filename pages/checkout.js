@@ -5,7 +5,7 @@ const Checkout = () => (
   <Layout>
     <div className="container mt-5">
       <h1 className="mt-5 mb-4">Checkout Page.</h1>
-      {/* <CheckoutForm /> */}
+      <CheckoutForm />
     </div>
   </Layout>
 );

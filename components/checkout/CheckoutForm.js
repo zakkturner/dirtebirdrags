@@ -6,47 +6,47 @@ import { AppContext } from "../context/AppContext";
 import validateAndSanitizeCheckoutForm from "../../validator/checkout";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import { getFormattedCart, createCheckoutData } from "../../functions";
-import OrderSuccess from "./OrderSucess";
+import OrderSuccess from "./OrderSuccess";
 import GET_CART from "../../queries/get-cart";
 import CHECKOUT_MUTATION from "../../mutations/checkout";
 
 const CheckoutForm = () => {
-  const initialState = {
-    firstName: "",
-    lastName: "",
-    company: "",
-    country: "",
-    address1: "",
-    address2: "",
-    city: "",
-    state: "",
-    postcode: "",
-    phone: "",
-    email: "",
-    createAccount: false,
-    orderNotes: "",
-    paymentMethod: "",
-    errors: null,
-  };
+  //   const initialState = {
+  //     firstName: "",
+  //     lastName: "",
+  //     company: "",
+  //     country: "",
+  //     address1: "",
+  //     address2: "",
+  //     city: "",
+  //     state: "",
+  //     postcode: "",
+  //     phone: "",
+  //     email: "",
+  //     createAccount: false,
+  //     orderNotes: "",
+  //     paymentMethod: "",
+  //     errors: null,
+  //   };
 
   // Use this for testing purposes, so you dont have to fill the checkout form over an over again.
-  // const initialState = {
-  // 	firstName: 'Imran',
-  // 	lastName: 'Sayed',
-  // 	address1: '109 Hills Road Valley',
-  // 	address2: 'Station Road',
-  // 	city: 'Pune',
-  // 	state: 'Maharastra',
-  // 	country: 'ID',
-  // 	postcode: '400298',
-  // 	phone: '9959338989',
-  // 	email: 'imran@gmail.com',
-  // 	company: 'Tech',
-  // 	createAccount: false,
-  // 	orderNotes: '',
-  // 	paymentMethod: 'cod',
-  // 	errors: null
-  // };
+  const initialState = {
+    firstName: "Imran",
+    lastName: "Sayed",
+    address1: "109 Hills Road Valley",
+    address2: "Station Road",
+    city: "Pune",
+    state: "Maharastra",
+    country: "ID",
+    postcode: "400298",
+    phone: "9959338989",
+    email: "imran@gmail.com",
+    company: "Tech",
+    createAccount: false,
+    orderNotes: "",
+    paymentMethod: "cod",
+    errors: null,
+  };
 
   const [cart, setCart] = useContext(AppContext);
   const [input, setInput] = useState(initialState);
@@ -61,7 +61,7 @@ const CheckoutForm = () => {
 
       // Update cart in the localStorage.
       const updatedCart = getFormattedCart(data);
-      localStorage.setItem("woo-next-cart", JSON.stringify(updatedCart));
+      localStorage.setItem("dbr-cart", JSON.stringify(updatedCart));
 
       // Update cart data in React Context.
       setCart(updatedCart);
@@ -134,6 +134,14 @@ const CheckoutForm = () => {
     <>
       {cart ? (
         <form onSubmit={handleFormSubmit} className="woo-next-checkout-form">
+          <div className="woo-next-place-order-btn-wrap mt-5">
+            <button
+              className="btn woo-next-large-black-btn woo-next-place-order-btn btn-secondary"
+              type="submit"
+            >
+              Place Order
+            </button>
+          </div>
           <div className="row">
             {/*Billing Details*/}
             <div className="col-lg-6 col-md-12 p-0 pr-2">
@@ -148,14 +156,6 @@ const CheckoutForm = () => {
 
               {/*Payment*/}
               <PaymentModes input={input} handleOnChange={handleOnChange} />
-              <div className="woo-next-place-order-btn-wrap mt-5">
-                <button
-                  className="btn woo-next-large-black-btn woo-next-place-order-btn btn-secondary"
-                  type="submit"
-                >
-                  Place Order
-                </button>
-              </div>
 
               {/* Checkout Loading*/}
               {checkoutLoading && <p>Processing Order...</p>}
