@@ -1,4 +1,4 @@
-.product {
+.products {
   width: 100%;
   height: 180px;
   //   background: url("/img/shirt.jpg") no-repeat center center;
@@ -9,13 +9,13 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .product {
+  .products {
     height: 250px;
   }
 }
 
 @media only screen and (min-width: 1024px) {
-  .product {
+  .products {
     height: 300px;
   }
 }

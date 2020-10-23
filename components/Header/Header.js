@@ -1,7 +1,12 @@
 import Link from "next/link";
 import styles from "./Header.module.scss";
+import { AppContext } from "../context/AppContext";
+import { useContext } from "react";
+import CartIcon from "../cart/CartIcon";
 
 export default function Header() {
+  const [cart, setCart] = useContext(AppContext);
+
   return (
     <>
       <header className={styles.header}>
@@ -9,7 +14,7 @@ export default function Header() {
           <div className={styles.header__grid__logoCont}>
             <Link href="/">
               <a className={styles.header__grid__logoCont_logo}>
-                <img src="./img/logo.jpg" />
+                <img src="/img/logo.jpg" />
               </a>
             </Link>
           </div>
@@ -32,14 +37,7 @@ export default function Header() {
               </Link>
             </li>
             <li className={styles.header__grid__links__cart}>
-              <Link href="/cart">
-                <a className={styles.header__grid__links__cart__link}>
-                  Cart
-                  <span className={styles.header__grid__links__cart__link_num}>
-                    0
-                  </span>
-                </a>
-              </Link>
+              <CartIcon />
             </li>
           </ul>
         </div>

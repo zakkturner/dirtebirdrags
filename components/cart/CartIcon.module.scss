@@ -1,0 +1,24 @@
+.cart {
+  &__price {
+    font-size: 12px;
+    margin-right: 5px;
+  }
+
+  &__iconContainer {
+    position: relative;
+    &_count {
+      position: absolute;
+      font-size: 10px;
+      font-weight: 600;
+      height: 15px;
+      width: 15px;
+      background-color: #01cfff;
+      right: -90%;
+      top: -20%;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

@@ -5,7 +5,7 @@ import client from "../components/ApolloClient";
 import gsap, { Power4 } from "gsap";
 import Layout from "../components/Layout";
 
-import Product from "../components/Product/Product";
+import Products from "../components/Products/Products";
 
 import gql from "graphql-tag";
 
@@ -21,11 +21,10 @@ const PRODUCTS_QUERY = gql`
         image {
           uri
           title
-          sourceUrl
           srcSet
+          sourceUrl
         }
         name
-        price
       }
     }
   }
@@ -56,7 +55,7 @@ const Shop = (props) => {
               <div className={styles.shop__container__products__grid}>
                 {products.length
                   ? products.map((product) => (
-                      <Product product={product} key={product.id} />
+                      <Products product={product} key={product.id} />
                     ))
                   : ""}
               </div>
