@@ -51,6 +51,10 @@ Product.getInitialProps = async function (context) {
           price
           id
         }
+        ... on VariableProduct {
+          price
+          id
+        }
       }
     }
   `;
