@@ -14,7 +14,7 @@ export default function Header() {
           <div className={styles.header__grid__logoCont}>
             <Link href="/">
               <a className={styles.header__grid__logoCont_logo}>
-                <img src="/img/logo.jpg" />
+                <img src="/img/logot.png" />
               </a>
             </Link>
           </div>

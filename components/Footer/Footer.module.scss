@@ -16,6 +16,33 @@
       justify-content: space-between;
       list-style-type: none;
       font-size: 12px;
+      svg {
+        width: 12px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .footer {
+    &__container {
+      width: 80%;
+    }
+  }
+}
+
+@media only screen and (min-width: 834px) {
+  .footer {
+    &__container {
+      width: 70%;
+    }
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .footer {
+    &__container {
+      width: 60%;
     }
   }
 }
