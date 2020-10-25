@@ -15,8 +15,7 @@
       }
     }
     &__links {
-      display: flex;
-      justify-content: space-between;
+      display: none;
       &__item {
         list-style-type: none;
       }
@@ -27,6 +26,27 @@
             margin-left: 8px;
           }
         }
+      }
+    }
+    &__menuIcon {
+      justify-self: flex-end;
+      cursor: pointer;
+      svg {
+        width: 20px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .header {
+    &__grid {
+      &__links {
+        display: flex;
+        justify-content: space-between;
+      }
+      &__menuIcon {
+        display: none;
       }
     }
   }

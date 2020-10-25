@@ -3,6 +3,8 @@ import styles from "./Header.module.scss";
 import { AppContext } from "../context/AppContext";
 import { useContext } from "react";
 import CartIcon from "../cart/CartIcon";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 export default function Header() {
   const [cart, setCart] = useContext(AppContext);
@@ -40,6 +42,9 @@ export default function Header() {
               <CartIcon />
             </li>
           </ul>
+          <div className={styles.header__grid__menuIcon}>
+            <FontAwesomeIcon icon={faBars} />
+          </div>
         </div>
       </header>
     </>

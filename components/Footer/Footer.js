@@ -19,7 +19,7 @@ export default function Footer() {
             </Link>
           </li>
           <li className={styles.footer__container__links_link}>
-            <Link href="https://www.instagram.com/dirtebirdrags/">Contact</Link>
+            <Link href="/contact">Contact</Link>
           </li>
           <li className={styles.footer__container__links_link}>
             <Link href="https://www.instagram.com/dirtebirdrags/">
