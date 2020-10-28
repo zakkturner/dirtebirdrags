@@ -44,13 +44,13 @@ const Shop = (props) => {
   return (
     <>
       <section className={styles.shop}>
-        <div
-          className={styles.shop__container}
-          ref={(el) => {
-            container = el;
-          }}
-        >
-          <Layout>
+        <Layout>
+          <div
+            className={styles.shop__container}
+            ref={(el) => {
+              container = el;
+            }}
+          >
             <main className={styles.shop__container__products}>
               <div className={styles.shop__container__products__grid}>
                 {products.length
@@ -60,8 +60,8 @@ const Shop = (props) => {
                   : ""}
               </div>
             </main>
-          </Layout>
-        </div>
+          </div>
+        </Layout>
       </section>
     </>
   );

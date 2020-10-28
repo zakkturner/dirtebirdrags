@@ -1,11 +1,14 @@
 import Header from "./Header/Header";
+import { useState } from "react";
 import Footer from "./Footer/Footer";
 import client from "./ApolloClient";
 import { AppProvider } from "./context/AppContext";
 import { ApolloProvider } from "react-apollo";
 import { ApolloProvider as ApolloHooksProvider } from "@apollo/react-hooks";
 import Head from "next/head";
+import Menu from "./Menu/Menu";
 export default function Layout(props) {
+  const [isActive, setActive] = useState(false);
   return (
     <AppProvider>
       <ApolloProvider client={client}>
@@ -18,7 +21,8 @@ export default function Layout(props) {
               crossorigin="anonymous"
             />
           </Head>
-          <Header />
+          <Header isActive={isActive} setActive={setActive} />
+          <Menu isActive={isActive} />
           {props.children}
           <Footer />
         </ApolloHooksProvider>

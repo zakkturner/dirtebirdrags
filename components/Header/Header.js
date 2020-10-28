@@ -6,8 +6,13 @@ import CartIcon from "../cart/CartIcon";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
-export default function Header() {
+export default function Header({ isActive, setActive }) {
   const [cart, setCart] = useContext(AppContext);
+
+  const handleClick = () => {
+    setActive(!isActive);
+    console.log(isActive);
+  };
 
   return (
     <>
@@ -42,7 +47,7 @@ export default function Header() {
               <CartIcon />
             </li>
           </ul>
-          <div className={styles.header__grid__menuIcon}>
+          <div className={styles.header__grid__menuIcon} onClick={handleClick}>
             <FontAwesomeIcon icon={faBars} />
           </div>
         </div>
