@@ -61,7 +61,7 @@ const CheckoutForm = () => {
 
       // Update cart in the localStorage.
       const updatedCart = getFormattedCart(data);
-      localStorage.setItem("woo-next-cart", JSON.stringify(updatedCart));
+      localStorage.setItem("dbr-cart", JSON.stringify(updatedCart));
 
       // Update cart data in React Context.
       setCart(updatedCart);

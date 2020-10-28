@@ -22,10 +22,22 @@
     &__wrap {
       width: 70%;
       height: 100%;
-      background-color: #ffffff;
+      background-color: #000;
       position: absolute;
       z-index: 999;
       right: 0;
+      &__links {
+        list-style: none;
+        padding: 0;
+        &_link {
+          width: 100%;
+          color: #fff;
+          font-size: 20px;
+          text-transform: uppercase;
+          border-bottom: 1px solid #999999;
+          padding: 10px 20px;
+        }
+      }
     }
   }
 }
