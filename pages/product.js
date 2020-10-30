@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Layout from "../components/Layout";
 import { withRouter } from "next/router";
 import client from "../components/ApolloClient";
@@ -7,6 +8,7 @@ import styles from "../styles/Product.module.scss";
 import AddToCartButton from "../components/cart/AddToCartButton";
 
 const Product = withRouter((props) => {
+  const [size, setSize] = useState({ size: null });
   const { product } = props;
   console.log(
     product.variations.nodes.map((el) => {
@@ -14,15 +16,23 @@ const Product = withRouter((props) => {
     })
   );
   console.log(product.variations.nodes[0].attributes.nodes[0].value);
+
+  const handleChange = (e) => {
+    setSize({
+      size: e.target.value,
+    });
+  };
+  console.log(size);
   return (
     <Layout>
       {product ? (
         <div className={styles.product}>
           <h1>{product.name}</h1>
           <img src={product.image.sourceUrl}></img>
-          <select>
+          <select onChange={handleChange}>
             {product.variations.nodes.map((item) => {
-              return <option>{item.attributes.nodes[0].value}</option>;
+              let variable = item.attributes.nodes[0].value;
+              return <option value={variable}>{variable}</option>;
             })}
           </select>
           <AddToCartButton product={product} />
