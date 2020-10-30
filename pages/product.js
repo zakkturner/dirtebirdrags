@@ -8,13 +8,23 @@ import AddToCartButton from "../components/cart/AddToCartButton";
 
 const Product = withRouter((props) => {
   const { product } = props;
-  console.log(product);
+  console.log(
+    product.variations.nodes.map((el) => {
+      return el.attributes.nodes[0].value;
+    })
+  );
+  console.log(product.variations.nodes[0].attributes.nodes[0].value);
   return (
     <Layout>
       {product ? (
         <div className={styles.product}>
           <h1>{product.name}</h1>
           <img src={product.image.sourceUrl}></img>
+          <select>
+            {product.variations.nodes.map((item) => {
+              return <option>{item.attributes.nodes[0].value}</option>;
+            })}
+          </select>
           <AddToCartButton product={product} />
         </div>
       ) : (
@@ -54,6 +64,18 @@ Product.getInitialProps = async function (context) {
         ... on VariableProduct {
           price
           id
+          name
+          variations {
+            nodes {
+              attributes {
+                nodes {
+                  id
+                  name
+                  value
+                }
+              }
+            }
+          }
         }
       }
     }

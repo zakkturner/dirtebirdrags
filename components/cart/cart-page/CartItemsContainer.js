@@ -17,7 +17,7 @@ const CartItemsContainer = () => {
   return (
     <>
       {cart === null ? (
-        <div>No Items in cart</div>
+        <div className={styles.cartContainer}>No Items in cart</div>
       ) : (
         <div className={styles.cartContainer}>
           {cart.products.length &&

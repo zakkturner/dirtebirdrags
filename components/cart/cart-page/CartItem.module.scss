@@ -1,0 +1,14 @@
+.itemGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  &__imgCont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &_img {
+    }
+    &__close {
+    }
+  }
+}
