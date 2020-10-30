@@ -1,17 +1,42 @@
 import { useEffect, useRef, useContext } from "react";
-import { AppContext } from "../context/AppContext";
+
 import Link from "next/link";
 import styles from "./Menu.module.scss";
 import gsap from "gsap";
+import MenuLink from "../menu-link/MenuLink";
 
 export default function Menu({ isActive }) {
-  const [cart] = useContext(AppContext);
-  const productsCount =
-    null !== cart && Object.keys(cart).length ? cart.totalProductsCount : "";
-
   let menu = useRef(null);
   let overlay = useRef(null);
   let wrap = useRef(null);
+
+  let menuLinks = [
+    {
+      name: "shop",
+      path: "shop",
+      cartLink: false,
+    },
+    {
+      name: "checkout",
+      path: "checkout",
+      cartLink: false,
+    },
+    {
+      name: "lookbook",
+      path: "lookbook",
+      cartLink: false,
+    },
+    {
+      name: "about",
+      path: "about",
+      cartLink: false,
+    },
+    {
+      name: "cart",
+      path: "cart",
+      cartLink: true,
+    },
+  ];
 
   useEffect(() => {
     isActive === true
@@ -48,41 +73,15 @@ export default function Menu({ isActive }) {
           }}
         >
           <ul className={styles.menu__container__wrap__links}>
-            <Link href="/shop">
-              <a>
-                <li className={styles.menu__container__wrap__links_link}>
-                  Shop
-                </li>
-              </a>
-            </Link>
-            <Link href="/cart">
-              <a>
-                <li className={styles.menu__container__wrap__links_link}>
-                  Cart {productsCount}
-                </li>
-              </a>
-            </Link>
-            <Link href="/checkout">
-              <a>
-                <li className={styles.menu__container__wrap__links_link}>
-                  Checkout
-                </li>
-              </a>
-            </Link>
-            <Link href="/lookbook">
-              <a>
-                <li className={styles.menu__container__wrap__links_link}>
-                  Lookbook
-                </li>
-              </a>
-            </Link>
-            <Link href="/about">
-              <a>
-                <li className={styles.menu__container__wrap__links_link}>
-                  About
-                </li>
-              </a>
-            </Link>
+            {menuLinks.map((link) => {
+              return (
+                <MenuLink
+                  name={link.name}
+                  path={link.path}
+                  cartLink={link.cartLink}
+                />
+              );
+            })}
           </ul>
         </div>
       </div>

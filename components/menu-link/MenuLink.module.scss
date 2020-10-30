@@ -1,0 +1,26 @@
+.link {
+  width: 100%;
+  color: #fff;
+  font-size: 35px;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  &_pill {
+    margin-left: 10px;
+    background-color: #01cfff;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    justify-self: flex-end;
+    justify-content: center;
+    align-items: center;
+  }
+}

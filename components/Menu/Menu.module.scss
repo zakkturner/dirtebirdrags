@@ -26,16 +26,18 @@
       position: absolute;
       z-index: 999;
       right: 0;
+
       &__links {
         list-style: none;
         padding: 0;
-        &_link {
-          width: 100%;
-          color: #fff;
-          font-size: 20px;
+        margin-top: 0;
+        &__cart {
+          color: #ffffff;
+          padding: 10px 20px;
+          font-size: 30px;
           text-transform: uppercase;
           border-bottom: 1px solid #999999;
-          padding: 10px 20px;
+          width: 100%;
         }
       }
     }
