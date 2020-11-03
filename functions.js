@@ -225,6 +225,7 @@ export const getFormattedCart = (data) => {
 
   for (let i = 0; i < givenProducts.length; i++) {
     const givenProduct = givenProducts[i].product;
+    const variation = givenProducts[i].variation;
     const product = {};
     const total = getFloatVal(givenProducts[i].total);
 
@@ -234,6 +235,8 @@ export const getFormattedCart = (data) => {
     product.qty = givenProducts[i].quantity;
     product.price = total / product.qty;
     product.totalPrice = givenProducts[i].total;
+    product.variationId = variation.variationId;
+    product.variationName = variation.name;
     product.image = {
       sourceUrl: givenProduct.image.sourceUrl,
       srcSet: givenProduct.image.srcSet,

@@ -51,7 +51,7 @@ export default function CartItem({ item, setCart, handleRemoveProductClick }) {
           </p>
         </div>
         <div className={styles.item__variationContainer}>
-          <p>L</p>
+          <p>{item.variationName}</p>
         </div>
         <div className={styles.item__qtyContainer}></div>
         <p className={styles.item__qtyContainer_qty}>

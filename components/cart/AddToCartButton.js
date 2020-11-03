@@ -7,12 +7,20 @@ import { v4 } from "uuid";
 import GET_CART from "../../queries/get-cart";
 import ADD_TO_CART from "../../mutations/add-to-cart";
 
-const AddToCart = (props) => {
-  const { product } = props;
+const AddToCart = ({ product, variationId }) => {
+  // const { product } = props;
+  console.log(product.productId);
+  console.log(variationId);
+  // const variationId = props.variationId;
+  // console.log(typeof variationId);
 
+  // console.log("product: ", product);
+  // console.log("product: ", product);
+  // console.log("variable: ", variableProd[0].variationId);
   const productQryInput = {
     clientMutationId: v4(), // Generate a unique id.
     productId: product.productId,
+    variationId: variationId,
   };
 
   const [cart, setCart] = useContext(AppContext);
@@ -25,33 +33,33 @@ const AddToCart = (props) => {
    *
    * @return {void}
    */
-  const handleAddToCartLocalStorage = () => {
-    // If component is rendered client side.
-    if (process.browser) {
-      let existingCart = localStorage.getItem("dbr-cart");
+  // const handleAddToCartLocalStorage = () => {
+  //   // If component is rendered client side.
+  //   if (process.browser) {
+  //     let existingCart = localStorage.getItem("woo-next-cart");
 
-      // If cart has item(s) already, update existing or add new item.
-      if (existingCart) {
-        existingCart = JSON.parse(existingCart);
+  //     // If cart has item(s) already, update existing or add new item.
+  //     if (existingCart) {
+  //       existingCart = JSON.parse(existingCart);
 
-        const qtyToBeAdded = 1;
+  //       const qtyToBeAdded = 1;
 
-        const updatedCart = updateCart(existingCart, product, qtyToBeAdded);
+  //       const updatedCart = updateCart(existingCart, product, qtyToBeAdded);
 
-        setCart(updatedCart);
-      } else {
-        /**
-         * If No Items in the cart, create an empty array and add one.
-         * @type {Array}
-         */
-        const newCart = addFirstProduct(product);
-        setCart(newCart);
-      }
+  //       setCart(updatedCart);
+  //     } else {
+  //       /**
+  //        * If No Items in the cart, create an empty array and add one.
+  //        * @type {Array}
+  //        */
+  //       const newCart = addFirstProduct(product);
+  //       setCart(newCart);
+  //     }
 
-      // Show View Cart Button
-      setShowViewCart(true);
-    }
-  };
+  //     // Show View Cart Button
+  //     setShowViewCart(true);
+  //   }
+  // };
 
   // Get Cart Data.
   const { loading, error, data, refetch } = useQuery(GET_CART, {
@@ -99,7 +107,7 @@ const AddToCart = (props) => {
   });
 
   const handleAddToCartClick = () => {
-    handleAddToCartLocalStorage();
+    // handleAddToCartLocalStorage();
     setRequestError(null);
     addToCart();
   };

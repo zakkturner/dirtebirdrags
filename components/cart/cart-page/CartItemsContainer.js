@@ -7,7 +7,7 @@ import { removeItemFromCart } from "../../../functions";
 
 const CartItemsContainer = () => {
   const [cart, setCart] = useContext(AppContext);
-  console.log(cart);
+  // console.log(cart);
   const handleRemoveProductClick = (event, productId) => {
     const updatedCart = removeItemFromCart(productId);
 
