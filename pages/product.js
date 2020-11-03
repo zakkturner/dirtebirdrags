@@ -35,7 +35,8 @@ const Product = withRouter((props) => {
     // console.log("yea");
   }
 
-  // console.log(variationId);
+  let products = product.variations.nodes;
+  console.log("products: ", products);
 
   return (
     <Layout>
@@ -45,7 +46,10 @@ const Product = withRouter((props) => {
           <img src={product.image.sourceUrl}></img>
           {product.variations ? (
             <select onChange={handleChange}>
-              {product.variations.nodes.map((item) => {
+              <option value disabled selected>
+                Select Size
+              </option>
+              {product.variations.nodes.reverse().map((item) => {
                 let variable = item.attributes.nodes[0].value;
                 return <option value={variable}>{variable}</option>;
               })}
@@ -53,11 +57,11 @@ const Product = withRouter((props) => {
           ) : (
             ""
           )}
-          <AddToCartButton
-            product={product}
-            variationId={variationId}
-            size={sizeState}
-          />
+          {sizeState.size === null ? (
+            <p>Select size to continue</p>
+          ) : (
+            <AddToCartButton product={product} variationId={variationId} />
+          )}
         </div>
       ) : (
         ""
