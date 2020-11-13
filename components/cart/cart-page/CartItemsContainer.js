@@ -20,6 +20,7 @@ const CartItemsContainer = () => {
         <div className={styles.cartContainer}>No Items in cart</div>
       ) : (
         <div className={styles.cartContainer}>
+          <h2>Your Cart</h2>
           {cart.products.length &&
             cart.products.map((item) => (
               <CartItem
@@ -29,16 +30,27 @@ const CartItemsContainer = () => {
                 handleRemoveProductClick={handleRemoveProductClick}
               />
             ))}
-          <div className={styles.cartContainer__cartTotal__container}>
-            <h2>Total</h2>
-            <div>{cart.totalProductsPrice}</div>
+          <div className={styles.cartContainer__cartTotal}>
+            <h5 className={styles.cartContainer__cartTotal_total}>Total</h5>
+            <div className={styles.cartContainer__cartTotal_price}>
+              {cart.totalProductsPrice}
+            </div>
+          </div>
+
+          <div className={styles.cartContainer__cartBtns}>
+            <Link href="/checkout">
+              <a className={styles.cartContainer__cartBtns_ckBtn}>
+                Proceed To Checkout
+              </a>
+            </Link>
+            <Link href="/shop">
+              <a className={styles.cartContainer__cartBtns_btn}>
+                Continue Shopping
+              </a>
+            </Link>
           </div>
         </div>
       )}
-
-      <Link href="/checkout">
-        <a>Proceed To Checkout</a>
-      </Link>
     </>
   );
 };

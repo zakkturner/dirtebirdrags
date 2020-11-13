@@ -1,14 +1,64 @@
 .itemGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  padding: 20px 0;
+  border-top: 1px solid #f1f1f1;
   &__imgCont {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    // justify-content: space-around;
     align-items: center;
     &_img {
+      width: 100%;
+      display: flex;
+
+      margin-bottom: 10px;
+      img {
+        width: 80%;
+        margin: 0 auto;
+      }
     }
     &__close {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &_txt {
+        font-size: 14px;
+        margin-left: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+    }
+  }
+  &__desc {
+    &__nameContainer {
+      &_name {
+        margin: 0;
+        font-size: 18px;
+
+        text-transform: uppercase;
+      }
+    }
+    &__variationContainer {
+      &_varTitle {
+        font-size: 10px;
+        margin: 0;
+      }
+      &_varName {
+        font-size: 14px;
+        margin: 10px 0;
+      }
+    }
+    &__qtyContainer {
+      &__qty {
+        input[type="number"] {
+          -webkit-appearance: textfield;
+          -moz-appearance: textfield;
+          appearance: textfield;
+          padding: 10px;
+        }
+      }
     }
   }
 }

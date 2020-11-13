@@ -1,5 +1,39 @@
 .cartContainer {
   width: 90%;
+  height: 100%;
   margin: 0 auto;
-  padding-top: 100px;
+  padding: 100px 0;
+  &__cartTotal {
+    border-top: 1px solid #c0c0c0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &_price {
+      font-size: 20px;
+      font-weight: 700;
+    }
+  }
+
+  &__cartBtns {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    &_ckBtn {
+      width: 100%;
+      text-align: center;
+      color: #fff;
+      border-radius: 5px;
+      padding: 13px 0;
+      margin-bottom: 5px;
+      background: #01cfff;
+    }
+    &_btn {
+      width: 100%;
+      text-align: center;
+      padding: 13px 0;
+      border: 1px solid #c0c0c0;
+      border-radius: 5px;
+    }
+  }
 }

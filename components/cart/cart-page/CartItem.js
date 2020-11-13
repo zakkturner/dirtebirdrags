@@ -27,11 +27,7 @@ export default function CartItem({ item, setCart, handleRemoveProductClick }) {
     <div className={styles.itemGrid}>
       <div className={styles.itemGrid__imgCont}>
         <div className={styles.itemGrid__imgCont_img}>
-          <img
-            width="100"
-            src={item.image.sourceUrl}
-            srcSet={item.image.srcSet}
-          />
+          <img src={item.image.sourceUrl} srcSet={item.image.srcSet} />
         </div>
         <div className={styles.itemGrid__imgCont__close}>
           <i
@@ -42,30 +38,39 @@ export default function CartItem({ item, setCart, handleRemoveProductClick }) {
         </div>
       </div>
       <div className={styles.itemGrid__desc}>
-        <div className={styles.item__nameContainer}>
-          <h4 className={styles.item__nameContainer_name}>{item.name}</h4>
+        <div className={styles.itemGrid__desc__nameContainer}>
+          <h4 className={styles.itemGrid__desc__nameContainer_name}>
+            {item.name}
+          </h4>
         </div>
         <div className={styles.item__priceContainer}>
           <p className={styles.item__priceContainer_name}>
             Price: ${item.price.toFixed()}
           </p>
         </div>
-        <div className={styles.item__variationContainer}>
-          <p>{item.variationName}</p>
+        <div className={styles.itemGrid__desc__variationContainer}>
+          <p className={styles.itemGrid__desc__variationContainer_varTitle}>
+            Color/Size
+          </p>
+          <p className={styles.itemGrid__desc__variationContainer_varName}>
+            {item.variationName}
+          </p>
         </div>
-        <div className={styles.item__qtyContainer}></div>
-        <p className={styles.item__qtyContainer_qty}>
+        <div className={styles.itemGrid__desc__qtyContainer}></div>
+        <p className={styles.itemGrid__desc__qtyContainer__qty}>
           <input
             type="number"
-            className={styles.item__qtyContainer__qty_input}
+            className={styles.itemGrid__desc__qtyContainer__qty_input}
             min="1"
             value={productCount}
             onChange={handleQtyChange}
           />
         </p>
-      </div>
-      <div className={styles.item__totalContainer}>
-        <p className={styles.item__totalContainer_total}>{item.totalPrice}</p>
+        <div className={styles.itemGrid__desc__totalContainer}>
+          <p className={styles.itemGrid__desc__totalContainer_total}>
+            {item.totalPrice}
+          </p>
+        </div>
       </div>
     </div>
   );
